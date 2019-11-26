@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Challenge 5</title>
+	<style>
+	body{
+		margin: 2%;
+		border: 1px solid black;
+		background-color: #b3b3b3;
+	}
+	#image{
+    	line-height:325px;
+		width: 388px;
+    	height: 325px;
+		border:5px solid black;
+		margin:0 auto;
+    	background-repeat: no-repeat;
+    	color:#FFFFFF;
+    	text-align: center;
+    	background-color: #8e68ff;
+    	background-size: 100%;
+    	margin-bottom:25px;
+    	font-size:150%;
+	}
+	.preview{
+		width:10%;
+		margin-left:17%;
+    	border: 10px solid black;
+	}
+	img{
+		width:95%;
+	}
+	h1{
+		text-align: center;
+	}
+	</style>
+
+	
+</head>
+<body>
+    <h1>Challenge 5</h1>
+    <div id="image">
+        Hover over an image below.
+    </div>
+
+    <img class="preview"
+         tabindex="1"
+         src="images/IMG_6952.JPG"
+         alt="me at a Michigan football game">
+
+    <img class="preview"
+         tabindex="2"
+         src="images/alcatraz_landscape2.jpg"
+         alt="Alcatraz island">
+
+    <img class="preview"
+         tabindex="3"
+         src="images/5FEB4851-2ADA-4A90-9729-9AFE84556833.JPG"
+         alt="Miami beach">
+         
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var image = $("#image");
+
+            $(".preview").mouseenter(function () {
+                var source = $(this).attr("src");
+                var text = $(this).attr("alt");
+
+                image.text(text);
+                image.css("background-image", `url(${source})`);
+            })
+
+            $(".preview").mouseleave(function () {
+                image.text("Hover over an image below.");
+                image.css("background-image", "none");
+            })
+
+            $(".preview").focus(function () {
+                var source = $(this).attr("src");
+                var text = $(this).attr("alt");
+
+                image.text(text);
+                image.css("background-image", `url(${source})`);
+            })
+
+            $(".preview").blur(function () {
+                image.text("Hover over an image below.");
+                image.css("background-image", "none");
+            })
+
+        })</script>
+
+</body>
+</html >
